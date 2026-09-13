@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>HENRIQUE TAVEIRA — Portfólio de Moda &amp; Direção Criativa</title>
+<meta name="description" content="Portfólio Profissional de Moda, Alfaiataria e Direção Criativa. Henrique Taveira.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #F7F5F0;
+  --bg-card: #FFFFFF;
+  --bg-overlay: rgba(247, 245, 240, 0.96);
+  --ink: #151413;
+  --text-secondary: #524D46;
+  --muted: #8E887E;
+  --line: #D8D2C5;
+  --line-subtle: #E8E3D8;
+  --accent-terra: #9C4B32;
+  --accent-gold: #B58A38;
+  --accent-green: #53644A;
+  --shadow-sm: 0 4px 16px rgba(21, 20, 19, 0.05);
+  --shadow-md: 0 14px 36px rgba(21, 20, 19, 0.08);
+  --shadow-lg: 0 24px 60px rgba(21, 20, 19, 0.14);
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="dark"] {
+  --bg-primary: #121110;
+  --bg-card: #1C1A18;
+  --bg-overlay: rgba(18, 17, 16, 0.97);
+  --ink: #EDE8DE;
+  --text-secondary: #AAA396;
+  --muted: #7A746A;
+  --line: #33302A;
+  --line-subtle: #24221F;
+  --accent-terra: #C66345;
+  --accent-gold: #D4A853;
+  --accent-green: #708564;
+  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 14px 36px rgba(0, 0, 0, 0.50);
+  --shadow-lg: 0 26px 64px rgba(0, 0, 0, 0.70);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+body, html {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--bg-primary);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 14.5px;
+  line-height: 1.65;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  user-select: none;
+}
+
+.deck-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: scale(0.985);
+  display: flex;
+  flex-direction: column;
+  padding: 4.5vh 6vw 6.5vh 6vw;
+  overflow: hidden;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: scale(1);
+  z-index: 10;
+}
+
+/* Curator Header */
+.curator-header {
+  position: absolute;
+  top: 2.8vh;
+  left: 6vw;
+  right: 6vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  z-index: 50;
+  border-bottom: 1px solid var(--line-subtle);
+  padding-bottom: 1.2vh;
+}
+
+.curator-header .brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.curator-header .brand .tag {
+  background: var(--accent-terra);
+  color: #FFF;
+  padding: 2px 8px;
+  border-radius: 2px;
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+}
+
+.curator-header .slide-indicator {
+  font-feature-settings: "tnum";
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* Typography */
+.heading-serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-terra);
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.body-text {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ==================== 1. COVER LAYOUT ==================== */
+.cover-hero-wrap {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 5vw;
+  align-items: center;
+  height: calc(100% - 4vh);
+  margin-top: 4vh;
+}
+
+.cover-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cover-name {
+  font-size: clamp(44px, 5.5vw, 84px);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  margin-bottom: 1.2rem;
+}
+
+.cover-divider {
+  width: 50px;
+  height: 2px;
+  background: var(--accent-gold);
+  margin-bottom: 1.2rem;
+}
+
+.cover-sub-role {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 1.8rem;
+}
+
+.cover-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 2.2rem;
+}
+
+.cover-tags span {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  padding: 5px 12px;
+  border-radius: 999px;
+  color: var(--muted);
+}
+
+.btn-start {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  background: var(--ink);
+  color: var(--bg-primary);
+  border: none;
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-smooth);
+}
+
+.btn-start:hover {
+  background: var(--accent-terra);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.cover-single-hero {
+  position: relative;
+  height: 70vh;
+  background: var(--bg-card);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--line-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-in;
+  transition: var(--transition-smooth);
+}
+
+.cover-single-hero:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-gold);
+}
+
+.cover-single-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 12px;
+}
+
+/* ==================== 2. TEXT AND PHOTO ==================== */
+.stage-text-photo {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 5vw;
+  align-items: center;
+  height: calc(100% - 4vh);
+  margin-top: 4vh;
+}
+
+.text-photo-visual {
+  position: relative;
+  height: 72vh;
+  background: var(--bg-card);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--line-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-in;
+  transition: var(--transition-smooth);
+}
+
+.text-photo-visual:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-gold);
+}
+
+.text-photo-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 12px;
+}
+
+.text-photo-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 540px;
+  max-height: 74vh;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.spec-grid-fashion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin-top: 1.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line-subtle);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.spec-grid-fashion span {
+  display: block;
+  color: var(--muted);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.spec-grid-fashion strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* ==================== 3. SECTION DIVIDER ==================== */
+.stage-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 4vh);
+  margin-top: 4vh;
+  text-align: center;
+}
+
+.divider-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 720px;
+}
+
+/* ==================== 4. PURE VISUAL (SLIDE FRAME) ==================== */
+.stage-pure-visual {
+  width: 100%;
+  height: calc(100% - 3vh);
+  margin-top: 3.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-in;
+}
+
+.pure-slide-frame {
+  position: relative;
+  max-width: 90vw;
+  max-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card);
+  border: 1px solid var(--line-subtle);
+  border-radius: 4px;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.pure-slide-frame:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-gold);
+}
+
+.pure-slide-frame img {
+  max-width: 100%;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Zoom Badge */
+.zoom-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: var(--bg-overlay);
+  border: 1px solid var(--line);
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ==================== 5. CONTACT FINAL ==================== */
+.slide-contact_final {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 780px;
+  margin: auto;
+}
+
+.cover-kicker {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent-terra);
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+.cover-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  margin-bottom: 1.2rem;
+}
+
+.cover-subtitle {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 2.2rem;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 22px;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--ink);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-smooth);
+}
+
+.contact-card:hover {
+  border-color: var(--accent-terra);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-card .card-icon {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.contact-card .card-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.contact-card .card-val {
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  color: var(--accent-terra);
+}
+
+.contact-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-primary-action {
+  padding: 13px 26px;
+  background: var(--ink);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.btn-primary-action:hover {
+  background: var(--accent-terra);
+  transform: translateY(-2px);
+}
+
+.btn-secondary-action {
+  padding: 13px 22px;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-secondary-action:hover {
+  background: var(--line-subtle);
+  border-color: var(--muted);
+}
+
+/* ==================== DOCK CONTROLS ==================== */
+.dock-controls {
+  position: fixed;
+  bottom: 2.2vh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  padding: 6px 14px;
+  border-radius: 999px;
+  box-shadow: var(--shadow-md);
+  z-index: 100;
+  backdrop-filter: blur(14px);
+  transition: var(--transition-smooth);
+}
+
+.dock-controls:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-gold);
+}
+
+.dock-btn {
+  background: transparent;
+  border: none;
+  color: var(--ink);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.dock-btn:hover {
+  background: var(--line-subtle);
+  color: var(--accent-terra);
+  transform: translateY(-1px);
+}
+
+.dock-divider {
+  width: 1px;
+  height: 18px;
+  background: var(--line);
+  margin: 0 4px;
+}
+
+.progress-track {
+  width: 160px;
+  height: 3px;
+  background: var(--line);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 2%;
+  background: linear-gradient(90deg, var(--accent-terra), var(--accent-gold));
+  transition: width 0.3s ease;
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 9, 8, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3vh 3vw;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.lightbox-modal.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 2.5vh;
+  right: 3.5vw;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFF;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.lightbox-close:hover {
+  background: var(--accent-terra);
+  transform: rotate(90deg);
+}
+
+.lightbox-img {
+  max-width: 94vw;
+  max-height: 86vh;
+  object-fit: contain;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.85);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.lightbox-caption {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: #AAA396;
+  margin-top: 12px;
+  text-transform: uppercase;
+}
+
+/* Grid Drawer */
+.grid-drawer {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-overlay);
+  backdrop-filter: blur(24px);
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  padding: 4vh 5vw;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  overflow-y: auto;
+}
+
+.grid-drawer.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.grid-drawer-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1.5vh;
+  margin-bottom: 2.5vh;
+}
+
+.thumbnails-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  padding-bottom: 6vh;
+}
+
+.thumb-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.thumb-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-gold);
+  box-shadow: var(--shadow-md);
+}
+
+.thumb-card.current {
+  border-color: var(--accent-terra);
+  box-shadow: 0 0 0 2px var(--accent-terra);
+}
+
+.thumb-preview {
+  height: 120px;
+  background: #EAE6DF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+[data-theme="dark"] .thumb-preview {
+  background: #191816;
+}
+
+.thumb-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.thumb-card h5 {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  padding: 8px 10px;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+@media (max-width: 960px) {
+  .stage-text-photo, .cover-hero-wrap {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 2vh;
+  }
+  .text-photo-visual, .cover-single-hero {
+    height: 38vh;
+  }
+}
+
+@media print {
+  body, html {
+    overflow: visible !important;
+    height: auto !important;
+    background: #FFF !important;
+    color: #000 !important;
+  }
+  .slide {
+    position: relative !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    page-break-after: always;
+    width: 100vw;
+    height: 56.25vw;
+    padding: 2vw 2vw;
+  }
+  .pure-slide-frame {
+    max-height: 90vh !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  .dock-controls, .curator-header, .lightbox-modal, .grid-drawer {
+    display: none !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="deck-container">
+  <!-- ================= SLIDE 01: HENRIQUE TAVEIRA ================= -->
+  <section class="slide active slide-cover" data-title="HENRIQUE TAVEIRA" data-notes="Capa profissional do portfólio de Henrique Taveira.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">PORTFÓLIO PROFISSIONAL</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">01 / 48</div>
+    </div>
+    <div class="cover-hero-wrap">
+      <div class="cover-content">
+        <div class="kicker">PORTFÓLIO DE MODA</div>
+        <h1 class="heading-serif cover-name">HENRIQUE<br>TAVEIRA</h1>
+        <div class="cover-divider"></div>
+        <p class="cover-sub-role">DIREÇÃO CRIATIVA • DESIGN DE MODA • DESENVOLVIMENTO DE PRODUTO</p>
+        <div class="cover-tags">
+          <span>ALFAIATARIA PREMIUM</span><span>SELEÇÃO BRASILEIRA CBF</span><span>ANIMALE</span><span>COLEÇÃO AUTORAL</span><span>PESQUISA TÊXTIL</span>
+        </div>
+        <button class="btn-start" onclick="nextSlide()">
+          INICIAR APRESENTAÇÃO <span style="font-size: 16px;">→</span>
+        </button>
+      </div>
+      <div class="cover-single-hero" onclick="openLightbox('fotos/slide_01_foto_1.jpeg', 'Henrique Taveira — Perfil Profissional')">
+        <img src="fotos/slide_01_foto_1.jpeg" alt="Henrique Taveira">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 02: HENRIQUE TAVEIRA ================= -->
+  <section class="slide  slide-text_and_photo" data-title="HENRIQUE TAVEIRA" data-notes="Perfil profissional de Henrique Taveira: experiência com grandes marcas e domínio de produto.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">PERFIL PROFISSIONAL</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">02 / 48</div>
+    </div>
+    <div class="stage-text-photo">
+      <div class="text-photo-visual" onclick="openLightbox('fotos/slide_01_foto_1.jpeg', 'HENRIQUE TAVEIRA')">
+        <img src="fotos/slide_01_foto_1.jpeg" alt="HENRIQUE TAVEIRA">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR</span></div>
+      </div>
+      <div class="text-photo-info">
+        <div class="kicker">ATUAÇÃO NO MERCADO DE MODA</div>
+        <h2 class="heading-serif" style="font-size: clamp(26px, 3.2vw, 42px); margin-bottom: 0.6rem;">HENRIQUE TAVEIRA</h2>
+        <p class="kicker" style="color: var(--accent-gold); margin-bottom: 1.2rem;">Estilista | Diretor Criativo | Designer de Moda</p>
+        
+        <p class="body-text" style="margin-bottom: 1rem;">Estilista e Diretor Criativo com sólida atuação no mercado de moda nacional, desenvolvendo coleções para marcas de referência como <strong>ANIMALE</strong>, <strong>AMARO</strong> e <strong>Riachuelo</strong>. Minha atuação conecta pesquisa de tendências, identidade de marca e viabilidade comercial em todas as etapas da cadeia de produto — do conceito inicial e desenvolvimento têxtil ao acompanhamento de fichas técnicas, provas de roupa (fitting) e direção de imagem de campanha.</p>
+        <p class="body-text" style="margin-bottom: 1rem;">Com forte domínio em <strong>alfaiataria feminina contemporânea</strong>, modelagem tridimensional, estamparia e intervenções artesanais de alto valor agregado, foco em construir produtos de alto apelo estético e consistência comercial que dialogam com a mulher contemporânea e fortalecem o posicionamento de mercado da marca.</p>
+        <div class="spec-grid-fashion">
+          <div><span>MARCAS DE ATUAÇÃO</span><strong>Animale, Amaro, Riachuelo</strong></div>
+          <div><span>COMPETÊNCIAS</span><strong>Direção Criativa, Alfaiataria, Fitting, Ficha Técnica</strong></div>
+          <div><span>DESTAQUE DE MERCADO</span><strong>Ternos Oficiais CBF Copa do Mundo 2023</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 03: TCC — PEGGY GUGGENHEIM ================= -->
+  <section class="slide  slide-text_and_photo" data-title="TCC — PEGGY GUGGENHEIM" data-notes="Pesquisa conceitual e técnica do TCC Peggy.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">COLEÇÃO AUTORAL</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">03 / 48</div>
+    </div>
+    <div class="stage-text-photo">
+      <div class="text-photo-visual" onclick="openLightbox('fotos/slide_02_foto_1.jpeg', 'TCC — PEGGY GUGGENHEIM')">
+        <img src="fotos/slide_02_foto_1.jpeg" alt="TCC — PEGGY GUGGENHEIM">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR</span></div>
+      </div>
+      <div class="text-photo-info">
+        <div class="kicker">CONCEITO & DESENVOLVIMENTO TÉCNICO</div>
+        <h2 class="heading-serif" style="font-size: clamp(26px, 3.2vw, 42px); margin-bottom: 0.6rem;">TCC — PEGGY GUGGENHEIM</h2>
+        <p class="kicker" style="color: var(--accent-gold); margin-bottom: 1.2rem;">Coleção Autoral & Pesquisa de Campo | 2017</p>
+        
+        <p class="body-text" style="margin-bottom: 1rem;">Coleção autoral desenvolvida a partir de pesquisa de campo em Veneza durante a Bienal de Arte. O ponto de partida foi o acervo pessoal e a residência histórica de <strong>Peggy Guggenheim</strong> (Palazzo Venier dei Leoni), com ênfase na relação entre design de superfície, arte modernista e a cabeceira escultórica em prata de <strong>Alexander Calder</strong>.</p>
+        <p class="body-text" style="margin-bottom: 1rem;">O desenvolvimento da coleção traduz o dinamismo dos móbiles de Calder em soluções técnicas de vestuário: modelagem com recortes geométricos precisos, inserção de nesgas com plissados manuais que criam movimento cinético na silhueta, e desenvolvimento de estamparia digital autoral. A cartela de cores explora contrastes minerais entre azuis profundos, ocre e tons neutros de areia sobre bases de seda pura, crepes estruturados e alfaiataria fina.</p>
+        <div class="spec-grid-fashion">
+          <div><span>COLEÇÃO</span><strong>Autoral: Peggy (Graduação em Moda)</strong></div>
+          <div><span>ANO</span><strong>2017</strong></div>
+          <div><span>TÉCNICAS</span><strong>Modelagem 3D, Plissados Manuais, Estamparia Digital</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 04: TCC — PEGGY ================= -->
+  <section class="slide  slide-pure_visual" data-title="TCC — PEGGY" data-notes="Página 3 do TCC Peggy.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">TCC — PEGGY (2017)</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">04 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_03_render.png', 'TCC — PEGGY — Prancha 3')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_03_render.png" alt="Slide 3">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 05: TCC — PEGGY ================= -->
+  <section class="slide  slide-pure_visual" data-title="TCC — PEGGY" data-notes="Página 4 do TCC Peggy.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">TCC — PEGGY (2017)</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">05 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_04_render.png', 'TCC — PEGGY — Prancha 4')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_04_render.png" alt="Slide 4">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 06: TCC — PEGGY ================= -->
+  <section class="slide  slide-pure_visual" data-title="TCC — PEGGY" data-notes="Página 5 do TCC Peggy.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">TCC — PEGGY (2017)</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">06 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_05_render.png', 'TCC — PEGGY — Prancha 5')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_05_render.png" alt="Slide 5">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 07: TCC — PEGGY ================= -->
+  <section class="slide  slide-pure_visual" data-title="TCC — PEGGY" data-notes="Página 6 do TCC Peggy.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">TCC — PEGGY (2017)</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">07 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_06_render.png', 'TCC — PEGGY — Prancha 6')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_06_render.png" alt="Slide 6">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 08: TCC — PEGGY ================= -->
+  <section class="slide  slide-pure_visual" data-title="TCC — PEGGY" data-notes="Página 7 do TCC Peggy.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">TCC — PEGGY (2017)</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">08 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_07_render.png', 'TCC — PEGGY — Prancha 7')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_07_render.png" alt="Slide 7">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 09: ALFAIATARIA — ANIMALE ================= -->
+  <section class="slide  slide-section_divider" data-title="ALFAIATARIA — ANIMALE" data-notes="Divisor da seção de Alfaiataria Animale.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">ALFAIATARIA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">09 / 48</div>
+    </div>
+    <div class="stage-divider">
+      <div class="divider-content">
+        <div class="kicker">SEÇÃO DO PORTFÓLIO</div>
+        <h2 class="heading-serif" style="font-size: clamp(34px, 4.5vw, 64px); margin-bottom: 0.8rem;">ALFAIATARIA — ANIMALE</h2>
+        <div class="cover-divider"></div>
+        <p class="cover-sub-role" style="margin-bottom: 2rem;">Desenvolvimento de Linhas Comerciais & Luxo Contemporâneo</p>
+        <button class="btn-start" onclick="nextSlide()" style="margin: auto;">
+          VER PROJETOS <span style="font-size: 16px;">→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 10: ALFAIATARIA COMERCIAL & LUXO ================= -->
+  <section class="slide  slide-text_and_photo" data-title="ALFAIATARIA COMERCIAL & LUXO" data-notes="Linha comercial de alfaiataria Animale.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">ALFAIATARIA ANIMALE</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">10 / 48</div>
+    </div>
+    <div class="stage-text-photo">
+      <div class="text-photo-visual" onclick="openLightbox('fotos/slide_09_foto_1.jpeg', 'ALFAIATARIA COMERCIAL & LUXO')">
+        <img src="fotos/slide_09_foto_1.jpeg" alt="ALFAIATARIA COMERCIAL & LUXO">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR</span></div>
+      </div>
+      <div class="text-photo-info">
+        <div class="kicker">DESENVOLVIMENTO DE PRODUTO</div>
+        <h2 class="heading-serif" style="font-size: clamp(26px, 3.2vw, 42px); margin-bottom: 0.6rem;">ALFAIATARIA COMERCIAL & LUXO</h2>
+        <p class="kicker" style="color: var(--accent-gold); margin-bottom: 1.2rem;">Construção de Produto, Modelagem & Pesquisa Têxtil</p>
+        
+        <p class="body-text" style="margin-bottom: 1rem;">Desenvolvimento e curadoria de linhas de <strong>alfaiataria feminina premium</strong> na <strong>ANIMALE</strong>, com foco em renovação de clássicos comerciais e construção de novas silhuetas para o mercado de luxo contemporâneo.</p>
+        <p class="body-text" style="margin-bottom: 1rem;">O trabalho envolve pesquisa têxtil aprofundada (lãs tropicais frias, crepes de alta gramatura, misturas nobres de linho e sedas), desenvolvimento de peças-chave como smokings contemporâneos, blazers oversized, spolverinos cropped e coletes de alfaiataria versáteis. O processo une rigor técnico de entretelamento, acabamentos de costura em alfaiataria tradicional e modelagens anatômicas focadas em caimento impecável, conforto e excelente performance de sell-through no varejo.</p>
+        <div class="spec-grid-fashion">
+          <div><span>MARCA</span><strong>ANIMALE</strong></div>
+          <div><span>CATEGORIA</span><strong>Alfaiataria Feminina / Pret-à-Porter</strong></div>
+          <div><span>FOCO TÉCNICO</span><strong>Modelagem Anatômica, Entretelamento, Lãs Frias & Crepes</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 11: TERNOS OFICIAIS CBF SELEÇÃO FEMININA ================= -->
+  <section class="slide  slide-text_and_photo" data-title="TERNOS OFICIAIS CBF SELEÇÃO FEMININA" data-notes="Projeto dos ternos sob medida da Seleção Brasileira Feminina.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">ALFAIATARIA CBF</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">11 / 48</div>
+    </div>
+    <div class="stage-text-photo">
+      <div class="text-photo-visual" onclick="openLightbox('fotos/slide_10_foto_1.jpeg', 'TERNOS OFICIAIS CBF SELEÇÃO FEMININA')">
+        <img src="fotos/slide_10_foto_1.jpeg" alt="TERNOS OFICIAIS CBF SELEÇÃO FEMININA">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR</span></div>
+      </div>
+      <div class="text-photo-info">
+        <div class="kicker">CASO DE SUCESSO & BRANDING</div>
+        <h2 class="heading-serif" style="font-size: clamp(26px, 3.2vw, 42px); margin-bottom: 0.6rem;">TERNOS OFICIAIS CBF SELEÇÃO FEMININA</h2>
+        <p class="kicker" style="color: var(--accent-gold); margin-bottom: 1.2rem;">Copa do Mundo Feminina FIFA 2023 | Animale x CBF</p>
+        
+        <p class="body-text" style="margin-bottom: 1rem;">Desenvolvimento dos <strong>ternos oficiais sob medida da Seleção Brasileira Feminina de Futebol (CBF)</strong> para a <strong>Copa do Mundo FIFA 2023</strong>, em parceria estratégica entre a <strong>ANIMALE</strong> e a <strong>CBF</strong>. Projeto histórico que marcou a primeira vez que a delegação feminina viajou uniformizada em trajes de alfaiataria de alta moda.</p>
+        <p class="body-text" style="margin-bottom: 1rem;">Atuação direta no desenvolvimento de produto, engenharia de corte adaptada à biomecânica dos corpos atléticos de jogadoras e comissão técnica, sessões de prova de roupa (fitting) individualizadas, curadoria de tecidos de alta durabilidade e conforto térmico, além de acabamentos personalizados como forros com mensagens exclusivas e botões de alta alfaiataria. O projeto gerou ampla repercussão positiva na mídia global e consolidou a união entre esporte de alto rendimento, empoderamento e alta costura comercial.</p>
+        <div class="spec-grid-fashion">
+          <div><span>PROJETO</span><strong>Uniforme Social Sob Medida — CBF Feminina</strong></div>
+          <div><span>EVENTO</span><strong>Copa do Mundo FIFA 2023 (Austrália / Nova Zelândia)</strong></div>
+          <div><span>PARCEIROS</span><strong>Animale & Confederação Brasileira de Futebol (CBF)</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 12: SELEÇÃO BRASILEIRA FEMININA (CBF) ================= -->
+  <section class="slide  slide-pure_visual" data-title="SELEÇÃO BRASILEIRA FEMININA (CBF)" data-notes="Página 11: Projeto CBF Feminina.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">ALFAIATARIA CBF</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">12 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_11_render.png', 'SELEÇÃO BRASILEIRA FEMININA (CBF) — Prancha 11')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_11_render.png" alt="Slide 11">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 13: SELEÇÃO BRASILEIRA FEMININA (CBF) ================= -->
+  <section class="slide  slide-pure_visual" data-title="SELEÇÃO BRASILEIRA FEMININA (CBF)" data-notes="Página 12: Projeto CBF Feminina.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">ALFAIATARIA CBF</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">13 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_12_render.png', 'SELEÇÃO BRASILEIRA FEMININA (CBF) — Prancha 12')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_12_render.png" alt="Slide 12">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 14: SELEÇÃO BRASILEIRA FEMININA (CBF) ================= -->
+  <section class="slide  slide-pure_visual" data-title="SELEÇÃO BRASILEIRA FEMININA (CBF)" data-notes="Página 13: Projeto CBF Feminina.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">ALFAIATARIA CBF</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">14 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_13_render.png', 'SELEÇÃO BRASILEIRA FEMININA (CBF) — Prancha 13')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_13_render.png" alt="Slide 13">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 15: SELEÇÃO BRASILEIRA FEMININA (CBF) ================= -->
+  <section class="slide  slide-pure_visual" data-title="SELEÇÃO BRASILEIRA FEMININA (CBF)" data-notes="Página 14: Projeto CBF Feminina.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">ALFAIATARIA CBF</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">15 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_14_render.png', 'SELEÇÃO BRASILEIRA FEMININA (CBF) — Prancha 14')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_14_render.png" alt="Slide 14">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 16: ALFAIATARIA COMERCIAL — ANIMALE ================= -->
+  <section class="slide  slide-pure_visual" data-title="ALFAIATARIA COMERCIAL — ANIMALE" data-notes="Página 15: Alfaiataria comercial Animale.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">ALFAIATARIA ANIMALE</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">16 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_15_render.png', 'ALFAIATARIA COMERCIAL — ANIMALE — Prancha 15')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_15_render.png" alt="Slide 15">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 17: ALFAIATARIA COMERCIAL — ANIMALE ================= -->
+  <section class="slide  slide-pure_visual" data-title="ALFAIATARIA COMERCIAL — ANIMALE" data-notes="Página 16: Alfaiataria comercial Animale.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">ALFAIATARIA ANIMALE</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">17 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_16_render.png', 'ALFAIATARIA COMERCIAL — ANIMALE — Prancha 16')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_16_render.png" alt="Slide 16">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 18: ALFAIATARIA COMERCIAL — ANIMALE ================= -->
+  <section class="slide  slide-pure_visual" data-title="ALFAIATARIA COMERCIAL — ANIMALE" data-notes="Página 17: Alfaiataria comercial Animale.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">ALFAIATARIA ANIMALE</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">18 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_17_render.png', 'ALFAIATARIA COMERCIAL — ANIMALE — Prancha 17')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_17_render.png" alt="Slide 17">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 19: ALFAIATARIA COMERCIAL — ANIMALE ================= -->
+  <section class="slide  slide-pure_visual" data-title="ALFAIATARIA COMERCIAL — ANIMALE" data-notes="Página 18: Alfaiataria comercial Animale.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">ALFAIATARIA ANIMALE</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">19 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_18_render.png', 'ALFAIATARIA COMERCIAL — ANIMALE — Prancha 18')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_18_render.png" alt="Slide 18">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 20: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-section_divider" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Divisor da seção de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">20 / 48</div>
+    </div>
+    <div class="stage-divider">
+      <div class="divider-content">
+        <div class="kicker">SEÇÃO DO PORTFÓLIO</div>
+        <h2 class="heading-serif" style="font-size: clamp(34px, 4.5vw, 64px); margin-bottom: 0.8rem;">DIREÇÃO E CRIAÇÃO EM MODA</h2>
+        <div class="cover-divider"></div>
+        <p class="cover-sub-role" style="margin-bottom: 2rem;">Pesquisa de Estilo, Estamparia Exclusiva, Bordados & Arte Têxtil</p>
+        <button class="btn-start" onclick="nextSlide()" style="margin: auto;">
+          VER PROJETOS <span style="font-size: 16px;">→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 21: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 20 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">21 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_20_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 20')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_20_render.png" alt="Slide 20">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 22: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 21 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">22 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_21_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 21')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_21_render.png" alt="Slide 21">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 23: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 22 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">23 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_22_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 22')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_22_render.png" alt="Slide 22">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 24: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 23 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">24 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_23_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 23')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_23_render.png" alt="Slide 23">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 25: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 24 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">25 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_24_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 24')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_24_render.png" alt="Slide 24">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 26: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 25 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">26 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_25_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 25')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_25_render.png" alt="Slide 25">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 27: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 26 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">27 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_26_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 26')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_26_render.png" alt="Slide 26">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 28: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 27 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">28 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_27_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 27')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_27_render.png" alt="Slide 27">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 29: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 28 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">29 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_28_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 28')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_28_render.png" alt="Slide 28">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 30: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 29 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">30 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_29_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 29')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_29_render.png" alt="Slide 29">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 31: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 30 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">31 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_30_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 30')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_30_render.png" alt="Slide 30">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 32: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 31 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">32 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_31_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 31')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_31_render.png" alt="Slide 31">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 33: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 32 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">33 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_32_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 32')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_32_render.png" alt="Slide 32">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 34: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 33 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">34 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_33_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 33')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_33_render.png" alt="Slide 33">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 35: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 34 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">35 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_34_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 34')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_34_render.png" alt="Slide 34">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 36: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 35 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">36 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_35_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 35')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_35_render.png" alt="Slide 35">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 37: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 36 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">37 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_36_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 36')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_36_render.png" alt="Slide 36">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 38: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 37 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">38 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_37_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 37')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_37_render.png" alt="Slide 37">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 39: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 38 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">39 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_38_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 38')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_38_render.png" alt="Slide 38">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 40: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 39 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">40 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_39_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 39')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_39_render.png" alt="Slide 39">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 41: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 40 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">41 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_40_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 40')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_40_render.png" alt="Slide 40">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 42: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 41 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">42 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_41_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 41')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_41_render.png" alt="Slide 41">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 43: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 42 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">43 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_42_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 42')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_42_render.png" alt="Slide 42">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 44: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 43 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">44 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_43_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 43')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_43_render.png" alt="Slide 43">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 45: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 44 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">45 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_44_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 44')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_44_render.png" alt="Slide 44">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 46: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 45 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">46 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_45_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 45')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_45_render.png" alt="Slide 45">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 47: DIREÇÃO E CRIAÇÃO EM MODA ================= -->
+  <section class="slide  slide-pure_visual" data-title="DIREÇÃO E CRIAÇÃO EM MODA" data-notes="Página 46 de Direção e Criação em Moda.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">DIREÇÃO E CRIAÇÃO EM MODA</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">47 / 48</div>
+    </div>
+    <div class="stage-pure-visual" onclick="openLightbox('fotos/slide_46_render.png', 'DIREÇÃO E CRIAÇÃO EM MODA — Prancha 46')">
+      <div class="pure-slide-frame">
+        <img src="fotos/slide_46_render.png" alt="Slide 46">
+        <div class="zoom-badge"><span>🔍</span> <span>AMPLIAR DETALHE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 48: HENRIQUE TAVEIRA ================= -->
+  <section class="slide  slide-contact_final" data-title="HENRIQUE TAVEIRA" data-notes="Contatos oficiais de Henrique Taveira.">
+    <div class="curator-header">
+      <div class="brand"><span class="tag">CONTATO</span> <span>HENRIQUE TAVEIRA</span></div>
+      <div class="slide-indicator">48 / 48</div>
+    </div>
+    <div class="contact-container">
+      <div class="cover-kicker">PORTFÓLIO PROFISSIONAL</div>
+      <h2 class="cover-title" style="font-size: clamp(38px, 5vw, 72px);">HENRIQUE<br>TAVEIRA</h2>
+      <div class="cover-divider"></div>
+      <p class="cover-subtitle" style="margin-bottom: 2.2rem;">ESTILISTA • DIRETOR CRIATIVO • DESIGNER DE MODA</p>
+      
+      <div class="contact-cards">
+        <a href="mailto:henrique950704952@gmail.com" class="contact-card">
+          <span class="card-icon">✉</span>
+          <span class="card-label">E-MAIL DIRETO</span>
+          <strong class="card-val">henrique950704952@gmail.com</strong>
+        </a>
+        
+        <a href="https://wa.me/5511950704952" target="_blank" class="contact-card">
+          <span class="card-icon">📱</span>
+          <span class="card-label">WHATSAPP / TELEFONE</span>
+          <strong class="card-val">(11) 95070-4952</strong>
+        </a>
+      </div>
+
+      <div class="contact-actions">
+        <button onclick="window.print()" class="btn-primary-action">
+          🖨️ EXPORTAR / IMPRIMIR PDF
+        </button>
+        <button onclick="goToSlide(0)" class="btn-secondary-action">
+          ↺ VOLTAR AO INÍCIO
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= DOCK CONTROLS ================= -->
+<div class="dock-controls">
+  <button id="btn-prev" class="dock-btn" title="Slide Anterior (Seta Esquerda / A)">‹</button>
+  <div class="progress-track" id="progress-track" title="Barra de Progresso">
+    <div class="progress-fill" id="progress-bar"></div>
+  </div>
+  <button id="btn-next" class="dock-btn" title="Próximo Slide (Seta Direita / D / Espaço)">›</button>
+  <div class="dock-divider"></div>
+  <button id="btn-grid" class="dock-btn" title="Grade de Slides (G / Esc)">▦</button>
+  <button id="btn-theme" class="dock-btn" title="Modo Claro/Escuro (T)">◐</button>
+  <button id="btn-fullscreen" class="dock-btn" title="Tela Cheia (F)">⛶</button>
+</div>
+
+<!-- Lightbox Modal -->
+<div id="lightbox-modal" class="lightbox-modal" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" class="lightbox-img" src="" alt="Ampliação de Obra" onclick="event.stopPropagation()">
+  <div id="lightbox-caption" class="lightbox-caption">OBRA EM ALTA DEFINIÇÃO</div>
+</div>
+
+<!-- Grid Overview Drawer -->
+<div id="grid-drawer" class="grid-drawer">
+  <div class="grid-drawer-head">
+    <div>
+      <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-terra); font-weight: 600;">ÍNDICE VISUAL</div>
+      <h3 style="font-family: var(--font-serif); font-size: 24px; font-weight: 400;">TODOS OS SLIDES</h3>
+    </div>
+    <button onclick="toggleGrid()" style="background: transparent; border: 1px solid var(--line); color: var(--ink); padding: 6px 14px; border-radius: 999px; cursor: pointer; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em;">FECHAR (ESC)</button>
+  </div>
+  <div class="thumbnails-grid" id="thumbnails-grid"></div>
+</div>
+
+<script>
+const slides = Array.from(document.querySelectorAll('.slide'));
+const totalSlides = slides.length;
+let currentIndex = 0;
+
+const progressBar = document.getElementById('progress-bar');
+const progressTrack = document.getElementById('progress-track');
+const gridDrawer = document.getElementById('grid-drawer');
+const thumbnailsGrid = document.getElementById('thumbnails-grid');
+const lightboxModal = document.getElementById('lightbox-modal');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxCaption = document.getElementById('lightbox-caption');
+
+// Subtle Web Audio API click
+let audioCtx = null;
+function playTick() {
+  try {
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(650, audioCtx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(240, audioCtx.currentTime + 0.04);
+    gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+    gain.gain.linearRampToValueAtTime(0.001, audioCtx.currentTime + 0.04);
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start();
+    osc.stop(audioCtx.currentTime + 0.04);
+  } catch (e) {}
+}
+
+function goToSlide(n, playSound = true) {
+  if (n < 0) n = 0;
+  if (n >= totalSlides) n = totalSlides - 1;
+  currentIndex = n;
+
+  slides.forEach((slide, idx) => {
+    slide.classList.toggle('active', idx === currentIndex);
+  });
+
+  const progressPercent = ((currentIndex + 1) / totalSlides) * 100;
+  progressBar.style.width = progressPercent + '%';
+
+  const thumbs = document.querySelectorAll('.thumb-card');
+  thumbs.forEach((t, i) => t.classList.toggle('current', i === currentIndex));
+
+  if (playSound) playTick();
+}
+
+function nextSlide() { goToSlide(currentIndex + 1); }
+function prevSlide() { goToSlide(currentIndex - 1); }
+
+document.getElementById('btn-next').onclick = nextSlide;
+document.getElementById('btn-prev').onclick = prevSlide;
+
+progressTrack.onclick = (e) => {
+  const rect = progressTrack.getBoundingClientRect();
+  const ratio = (e.clientX - rect.left) / rect.width;
+  const targetIndex = Math.floor(ratio * totalSlides);
+  goToSlide(targetIndex);
+};
+
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  playTick();
+}
+document.getElementById('btn-theme').onclick = toggleTheme;
+
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen().catch(() => {});
+  } else {
+    if (document.exitFullscreen) document.exitFullscreen();
+  }
+}
+document.getElementById('btn-fullscreen').onclick = toggleFullscreen;
+
+function toggleGrid() {
+  gridDrawer.classList.toggle('active');
+  playTick();
+}
+document.getElementById('btn-grid').onclick = toggleGrid;
+
+function buildThumbnails() {
+  thumbnailsGrid.innerHTML = '';
+  slides.forEach((slide, idx) => {
+    const title = slide.getAttribute('data-title') || `Slide ${idx + 1}`;
+    const card = document.createElement('div');
+    card.className = `thumb-card ${idx === currentIndex ? 'current' : ''}`;
+    card.onclick = () => {
+      goToSlide(idx);
+      gridDrawer.classList.remove('active');
+    };
+
+    const preview = document.createElement('div');
+    preview.className = 'thumb-preview';
+    const imgInSlide = slide.querySelector('img');
+    if (imgInSlide) {
+      const cloneImg = document.createElement('img');
+      cloneImg.src = imgInSlide.src;
+      preview.appendChild(cloneImg);
+    } else {
+      preview.innerHTML = `<span style="font-family:var(--font-mono); font-size:11px; color:var(--muted);">${title.toUpperCase()}</span>`;
+    }
+
+    const label = document.createElement('h5');
+    label.innerText = title;
+
+    card.appendChild(preview);
+    card.appendChild(label);
+    thumbnailsGrid.appendChild(card);
+  });
+}
+buildThumbnails();
+
+function openLightbox(src, caption) {
+  lightboxImg.src = src;
+  lightboxCaption.innerText = caption || 'AMPLIAÇÃO EM ALTA DEFINIÇÃO';
+  lightboxModal.classList.add('active');
+  playTick();
+}
+function closeLightbox() {
+  lightboxModal.classList.remove('active');
+  playTick();
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    if (lightboxModal.classList.contains('active')) {
+      closeLightbox();
+      return;
+    }
+    if (gridDrawer.classList.contains('active')) {
+      toggleGrid();
+      return;
+    }
+  }
+
+  if (['ArrowRight', 'PageDown', ' ', 'd', 'D'].includes(e.key)) {
+    e.preventDefault();
+    nextSlide();
+  } else if (['ArrowLeft', 'PageUp', 'a', 'A'].includes(e.key)) {
+    e.preventDefault();
+    prevSlide();
+  } else if (e.key === 'Home') {
+    goToSlide(0);
+  } else if (e.key === 'End') {
+    goToSlide(totalSlides - 1);
+  } else if (e.key === 't' || e.key === 'T') {
+    toggleTheme();
+  } else if (e.key === 'f' || e.key === 'F') {
+    toggleFullscreen();
+  } else if (e.key === 'g' || e.key === 'G') {
+    toggleGrid();
+  }
+});
+
+let touchStartX = 0;
+let touchEndX = 0;
+document.addEventListener('touchstart', (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+
+document.addEventListener('touchend', (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+  const diff = touchEndX - touchStartX;
+  if (Math.abs(diff) > 50) {
+    if (diff < 0) nextSlide();
+    else prevSlide();
+  }
+}, { passive: true });
+
+goToSlide(0, false);
+</script>
+
+</body>
+</html>
